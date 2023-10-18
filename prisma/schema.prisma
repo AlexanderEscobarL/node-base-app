@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("DATABASE_URL")
+}
+
+model Location {
+  id    Int     @id @default(autoincrement())
+  name  String
+  gameLocation Game[]
+}
+
+model Team {
+  id    Int     @id @default(autoincrement())
+  name  String
+  gameTeam1 Game[] @relation("team1")
+  gameTeam2 Game[] @relation("team2")
+}
+
+model Game {
+  id        Int      @id @default(autoincrement())
+  dateAndTime DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  localTeam Team     @relation(fields: [localTeamId], references: [id], name: "team1")
+  visitorTeam Team   @relation(fields: [visitorTeamId], references: [id], name: "team2")
+  location Location  @relation(fields: [locationId], references: [id])
+  localTeamId  Int
+  visitorTeamId  Int
+  locationId  Int
+  status  Status    @default(PENDING)
+}
+
+enum Status {
+  PENDING
+  COMPLETE
+  CANCELED
+}

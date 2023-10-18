@@ -1,0 +1,18 @@
+version: '3'
+services:
+  postgres:
+    container_name: just_play_db
+    build: ./postgres
+    volumes:
+      - db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=P@ssword
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=postgres
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    ports:
+      - 5432:5432
+
+volumes:
+  db: {}
+
