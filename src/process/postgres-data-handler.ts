@@ -1,16 +1,10 @@
 import { Logger } from '../utils/Logger';
-import { Prisma, PrismaClient } from '@prisma/client'
+import { PrismaClient } from '@prisma/client'
 
 
 const prisma = new PrismaClient()
 
 export default class PostgresDataHandler {
-
-    private logger: Logger;
-
-    constructor() {
-        this.logger = new Logger();
-    }
 
     public saveGame(dateAndTime: Date, localId: number, visitId: number, locationId: number): Promise<any> {
         try {
