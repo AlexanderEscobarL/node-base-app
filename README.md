@@ -6,9 +6,9 @@
 3. docker compose
 
 # setup
-Follow the steps to run locally the application.
+Follow the steps to run the application locally.
 
-0. create .env an paste the next variables:
+0. create .env file and paste the next variables into it: 
     PORT=8080
     DATABASE_URL=postgresql://postgres:P@ssword@localhost:5432/postgres
 
