@@ -9,8 +9,10 @@
 Follow the steps to run the application locally.
 
 0. create .env file and paste the next variables into it: 
+    ```
     PORT=8080
     DATABASE_URL=postgresql://postgres:P@ssword@localhost:5432/postgres
+    ```
 
 1. npm install
 2. open a terminal console and navigate to Docker directory and execute docker compose up -d
